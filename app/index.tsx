@@ -19,7 +19,6 @@
  }
 */
 
-
 //Viewscroll
 
 /* import React, {useState} from 'react';
@@ -36,7 +35,6 @@
  );
 }
 */
-
 
 //TEXTINPUT
 
@@ -74,7 +72,6 @@ const styles = StyleSheet.create({
 });
 export default TextInputExample;
 */
-
 
 //PRESSABLE
 /*import React from 'react';
@@ -126,15 +123,9 @@ export default App;
 
 //FLATLIST
 
-import React, {useState} from 'react';
-import {
-  FlatList,
-  StatusBar,
-  StyleSheet,
-  View,
-  Text
-} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import React from "react";
+import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 type ItemData = {
   id: string;
@@ -143,16 +134,16 @@ type ItemData = {
 
 const DATA: ItemData[] = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
   },
 ];
 
@@ -162,12 +153,12 @@ const App = () => {
       <SafeAreaView style={styles.container}>
         <FlatList
           data={DATA}
-           renderItem={({ item }) => (
+          renderItem={({ item }) => (
             <View style={styles.item}>
               <Text style={styles.title}>{item.title}</Text>
             </View>
           )}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.id}
         />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -186,10 +177,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    backgroundColor:"blue",
-    color:"white"
+    backgroundColor: "blue",
+    color: "white",
   },
 });
 
 export default App;
-
