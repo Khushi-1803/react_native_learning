@@ -93,7 +93,7 @@ export default function pressable(){
 
 //IMAGE BACKGROUND
 
-import React from 'react';
+/*import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
@@ -122,3 +122,74 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+*/
+
+//FLATLIST
+
+import React, {useState} from 'react';
+import {
+  FlatList,
+  StatusBar,
+  StyleSheet,
+  View,
+  Text
+} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+type ItemData = {
+  id: string;
+  title: string;
+};
+
+const DATA: ItemData[] = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
+
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={DATA}
+           renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Text style={styles.title}>{item.title}</Text>
+            </View>
+          )}
+          keyExtractor={item => item.id}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+    backgroundColor:"blue",
+    color:"white"
+  },
+});
+
+export default App;
+
